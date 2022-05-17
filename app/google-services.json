@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "666713139759",
+    "project_id": "ges-books-2022",
+    "storage_bucket": "ges-books-2022.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:666713139759:android:60f6b1624cc79da17174da",
+        "android_client_info": {
+          "package_name": "com.danp.ges_books_01"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "666713139759-igq8r71ugq78drh3krcvrsicjbg0jhun.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyNX2kuAiwiOsFLd1-CNH6Jzq_vqWMs_g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "666713139759-igq8r71ugq78drh3krcvrsicjbg0jhun.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

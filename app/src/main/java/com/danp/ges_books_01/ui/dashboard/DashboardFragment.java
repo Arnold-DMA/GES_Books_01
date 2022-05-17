@@ -10,11 +10,13 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.danp.ges_books_01.R;
 import com.danp.ges_books_01.databinding.FragmentDashboardBinding;
 
 public class DashboardFragment extends Fragment {
 
     private FragmentDashboardBinding binding;
+    //private TextView texto;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -25,7 +27,11 @@ public class DashboardFragment extends Fragment {
         View root = binding.getRoot();
 
         final TextView textView = binding.textDashboard;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        textView.setText("Hola");
+        //dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+
+        //texto = (TextView) container.findViewById(R.id.text_dashboard);
+        //texto.setText(dashboardViewModel.getText().toString());
         return root;
     }
 

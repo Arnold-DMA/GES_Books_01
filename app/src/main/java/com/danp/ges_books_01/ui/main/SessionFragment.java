@@ -1,5 +1,16 @@
 package com.danp.ges_books_01.ui.main;
 
+import androidx.lifecycle.ViewModel;
+
+public class SessionFragment extends ViewModel {
+    // TODO: Implement the ViewModel
+}
+
+
+
+
+/*package com.danp.ges_books_01.ui.main;
+
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
@@ -36,4 +47,4 @@ public class SessionFragment extends Fragment {
         // TODO: Use the ViewModel
     }
 
-}
+}*/

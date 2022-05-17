@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation_session"
+    app:startDestination="@+id/navigation_login">
+
+    <fragment
+        android:id="@+id/navigation_login"
+        android:name="com.danp.ges_books_01.ui.session.Login"
+        android:label="@string/title_login"
+        tools:layout="@layout/fragment_login" />
+
+    <fragment
+        android:id="@+id/navigation_registro"
+        android:name="com.danp.ges_books_01.ui.session.Signup"
+        android:label="@string/title_registro"
+        tools:layout="@layout/fragment_signup" />
+
+</navigation>
