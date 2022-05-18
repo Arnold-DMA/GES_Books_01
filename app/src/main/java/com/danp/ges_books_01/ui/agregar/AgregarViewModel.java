@@ -1,14 +1,14 @@
-package com.danp.ges_books_01.ui.notifications;
+package com.danp.ges_books_01.ui.agregar;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class NotificationsViewModel extends ViewModel {
+public class AgregarViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public NotificationsViewModel() {
+    public AgregarViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is notifications fragment");
     }

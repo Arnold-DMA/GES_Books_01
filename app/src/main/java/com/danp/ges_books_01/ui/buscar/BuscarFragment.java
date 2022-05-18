@@ -1,4 +1,4 @@
-package com.danp.ges_books_01.ui.dashboard;
+package com.danp.ges_books_01.ui.buscar;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,20 +10,19 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.danp.ges_books_01.R;
-import com.danp.ges_books_01.databinding.FragmentDashboardBinding;
+import com.danp.ges_books_01.databinding.FragmentBuscarBinding;
 
-public class DashboardFragment extends Fragment {
+public class BuscarFragment extends Fragment {
 
-    private FragmentDashboardBinding binding;
+    private FragmentBuscarBinding binding;
     //private TextView texto;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DashboardViewModel dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+        BuscarViewModel dashboardViewModel =
+                new ViewModelProvider(this).get(BuscarViewModel.class);
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        binding = FragmentBuscarBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textDashboard;

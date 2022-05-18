@@ -1,4 +1,4 @@
-package com.danp.ges_books_01.ui.notifications;
+package com.danp.ges_books_01.ui.agregar;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,18 +10,19 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.danp.ges_books_01.databinding.FragmentNotificationsBinding;
+import com.danp.ges_books_01.databinding.FragmentAgregarBinding;
 
-public class NotificationsFragment extends Fragment {
 
-    private FragmentNotificationsBinding binding;
+public class AgregarFragment extends Fragment {
+
+    private FragmentAgregarBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        NotificationsViewModel notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
+        AgregarViewModel notificationsViewModel =
+                new ViewModelProvider(this).get(AgregarViewModel.class);
 
-        binding = FragmentNotificationsBinding.inflate(inflater, container, false);
+        binding = FragmentAgregarBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textNotifications;

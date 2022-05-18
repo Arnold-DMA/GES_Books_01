@@ -1,13 +1,16 @@
 package com.danp.ges_books_01.ui.session;
 
-import static com.danp.ges_books_01.ui.home.HomeFragment.MESSAGE;
+import static android.app.Activity.RESULT_CANCELED;
+import static android.app.Activity.RESULT_OK;
+import static com.danp.ges_books_01.ui.sugerencias.SugerenciasFragment.MESSAGE;
+import static com.google.android.gms.common.internal.safeparcel.SafeParcelable.NULL;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -18,13 +21,23 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.danp.ges_books_01.R;
-import com.danp.ges_books_01.databinding.FragmentLoginBinding;
 import com.danp.ges_books_01.databinding.FragmentSignupBinding;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInApi;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -37,6 +50,7 @@ public class Signup extends Fragment {
     //private FirebaseAuth mAuth;
     private EditText etUsername, etEmail, etName, etPassword, etRepeatPassword;
     private Button btnRegistro;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -64,6 +78,8 @@ public class Signup extends Fragment {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
                                         // Sign in success, update UI with the signed-in user's information
+                                        saveInDataBase(etEmail.getText().toString(), etUsername.getText().toString(),
+                                                etName.getText().toString());
                                         showHome(task.getResult().getUser().getEmail(), etName.getText().toString());
                                     } else {
                                         // If sign in fails, display a message to the user.
@@ -74,10 +90,11 @@ public class Signup extends Fragment {
                     );
                 }
                 else {
-                    showAlert(1);
+                    showAlert(2);
                 }
             }
         });
+
         // Inflate the layout for this fragment
         return root;
     }
@@ -87,8 +104,16 @@ public class Signup extends Fragment {
             Toast.makeText(getContext(), "Usuario registrado previamente", Toast.LENGTH_SHORT).show();
         }
         else if (opcion == 2){
-            Toast.makeText(getContext(), "Primera parte", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Debe llenar todos los campos.", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void saveInDataBase(String email, String username, String name){
+        HashMap<String, String> datos = new HashMap<>();
+        datos.put("email", email);
+        datos.put("username", username);
+        datos.put("name", name);
+        db.collection("users").document(email).set(datos);
     }
 
     public void showHome(String email, String name){
@@ -99,6 +124,7 @@ public class Signup extends Fragment {
         getActivity().setResult(Activity.RESULT_OK, intent);
         getActivity().finish();
     }
+
 
     public Signup() {
         // Required empty public constructor
