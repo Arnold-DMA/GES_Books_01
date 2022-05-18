@@ -10,7 +10,7 @@ public class AgregarViewModel extends ViewModel {
 
     public AgregarViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
+        mText.setValue("Interfaz para agregar reseñas.");
     }
 
     public LiveData<String> getText() {

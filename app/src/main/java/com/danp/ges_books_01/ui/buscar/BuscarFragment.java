@@ -26,7 +26,7 @@ public class BuscarFragment extends Fragment {
         View root = binding.getRoot();
 
         final TextView textView = binding.textDashboard;
-        textView.setText("Hola");
+        textView.setText("Interfaz para buscar libros/citas");
         //dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
         //texto = (TextView) container.findViewById(R.id.text_dashboard);

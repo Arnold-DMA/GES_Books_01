@@ -10,7 +10,7 @@ public class BuscarViewModel extends ViewModel {
 
     public BuscarViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is dashboard fragment");
+        mText.setValue("Interfaz para realizar búsquedas");
     }
 
     public LiveData<String> getText() {
